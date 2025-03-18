@@ -1,0 +1,42 @@
+@import '../../../../../styles/mixins';
+
+.tabs {
+  &:not(:last-child) {
+    @include adaptive-value-base('margin-bottom', 28, 16, 1);
+  }
+}
+
+.tabsList {
+  @include adaptive-value-base('margin-bottom', 28, 24, 1);
+
+  justify-content: center;
+}
+
+.items {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  width: calc(100% + 80px);
+  margin: -40px 0 0 -40px;
+  padding: 40px 32px 40px 40px;
+}
+
+.itemWrapper {
+  flex-grow: 1;
+  align-self: normal;
+  flex-shrink: 0;
+  width: 318px;
+}
+
+.itemWrapperBig {
+  width: 48%;
+
+  /* stylelint-disable-next-line */
+  @include mq(md) {
+    width: 330px;
+  }
+}
+
+.item {
+  height: 100%;
+}

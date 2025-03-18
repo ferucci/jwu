@@ -1,0 +1,10 @@
+@import '../../../../styles/mixins';
+
+.swiperWrapper,
+.sliderWrapper {
+  margin: 0 auto;
+}
+
+.swiperWrapper {
+  max-width: 1200px;
+}

@@ -1,0 +1,170 @@
+@import '../../../styles/mixins';
+
+.header {
+  height: 74px;
+}
+
+.wrapper {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+
+  width: 100%;
+
+  background-color: white;
+}
+
+.nav {
+  @include flex-normal($justify-content: space-between);
+
+  gap: 40px;
+  padding: 12px 0 20px;
+  background-color: var(--color-white);
+
+  /* stylelint-disable-next-line */
+  @include mq(md) {
+    padding: 10px 0 16px;
+  }
+}
+
+.burgerButton {
+  position: relative;
+
+  display: none;
+
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+
+  background-color: var(--color-purple-400);
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 16px;
+    height: 2px;
+
+    background-color: var(--color-white);
+    border-radius: 4px;
+
+    transition:
+      transform 0.3s ease-in-out,
+      top 0.3s ease-in-out;
+  }
+
+  &::before {
+    top: 12px;
+  }
+
+  &::after {
+    top: calc(100% - 13px);
+  }
+
+  &[data-open='true'] {
+    .burgerLine {
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &::before,
+    &::after {
+      top: 50%;
+      transition:
+        transform 0.3s ease-in-out,
+        top 0.3s ease-in-out;
+    }
+
+    &::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  @include mq(xl) {
+    display: flex;
+  }
+}
+
+.burgerLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+
+  display: inline-block;
+
+  width: 16px;
+  height: 2px;
+
+  background-color: var(--color-white);
+  border-radius: 4px;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.menuWrapper {
+  @include flex-normal($justify-content: space-between);
+
+  width: 100%;
+
+  /* stylelint-disable-next-line */
+  @include mq(xl) {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+
+    width: 100%;
+    max-width: 360px;
+    height: 100vh;
+    padding: 80px 20px 32px;
+
+    visibility: hidden;
+    background-color: var(--color-white);
+
+    transition:
+      transform 0.3s,
+      background-color 0.3s;
+  }
+
+  @include mq(md) {
+    max-width: 100%;
+  }
+
+  &[data-open='true'] {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.3s,
+      background-color 0.3s;
+  }
+}
+
+.menu {
+  margin: 0 auto;
+
+  /* stylelint-disable-next-line */
+  @include mq(lg) {
+    flex-direction: column;
+  }
+
+  @include mq(sm) {
+    width: 100%;
+  }
+}

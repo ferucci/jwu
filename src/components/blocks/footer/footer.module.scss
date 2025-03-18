@@ -1,0 +1,53 @@
+@import '../../../styles/mixins';
+
+.footer {
+  @include adaptive-value-base('padding-top', 60, 30, 1);
+  @include adaptive-value-base('padding-bottom', 60, 30, 1);
+
+  flex: 0 0 auto;
+}
+
+.content {
+  @include adaptive-value-base('gap', 36, 20, 1);
+  @include flex-normal($justify-content: space-between);
+
+  flex-wrap: wrap;
+
+  /* stylelint-disable-next-line */
+  @include mq(sm) {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.menu {
+  @include mq(lg) {
+    display: none;
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  width: 100%;
+}
+
+.bottomText,
+.bottomLink {
+  color: var(--color-purple-250);
+}
+
+.bottomLink {
+  @include link-focus;
+  transition:
+    color 0.3s,
+    box-shadow 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-magenta-500);
+    }
+  }
+}

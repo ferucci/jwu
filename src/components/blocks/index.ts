@@ -1,0 +1,8 @@
+export { ConnectButtons } from './connect-buttons/connect-buttons'
+export { Footer } from './footer/footer'
+export { Form } from './form/form'
+export { CustomHead } from './head/customHead'
+export { Header } from './header/header'
+export { Layout } from './layout/layout'
+export { SectionNavigation } from './section-navigation/section-navigation'
+export { Socials } from './socials/socials'

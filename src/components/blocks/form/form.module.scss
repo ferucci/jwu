@@ -1,0 +1,58 @@
+@import '../../../styles/mixins';
+
+.form,
+.fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  @include adaptive-value-base('padding', 60, 28, 1);
+
+  gap: 20px;
+
+  /* stylelint-disable-next-line */
+  @include mq(md) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+.fields {
+  gap: 16px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.fieldsBase {
+  flex-wrap: wrap;
+  /* stylelint-disable */
+  flex-direction: row;
+}
+
+.item {
+  flex: 1 1 255px;
+}
+
+.subtitle {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.link {
+  @include link-focus;
+  color: var(--color-magenta-500);
+  text-decoration: underline;
+  transition:
+    color 0.3s,
+    box-shadow 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-orange-400);
+    }
+  }
+}
