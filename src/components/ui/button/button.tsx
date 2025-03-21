@@ -26,7 +26,7 @@ const ButtonPolymorph = <T extends ElementType = 'button'>(
     <Tag className={buttonClassName} ref={ref} {...rest} />
   )
 }
-
+// @ts-ignore
 export const Button = forwardRef(ButtonPolymorph) as <T extends ElementType = 'button'>(
   props: Props<T> &
     Omit<ComponentPropsWithoutRef<T>, keyof Props<T>> & {

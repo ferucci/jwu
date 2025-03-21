@@ -80,6 +80,7 @@ const TypographyPolymorph = <T extends ElementType = 'p'>(
 }
 
 export const Typography = memo(
+  // @ts-ignore
   forwardRef(TypographyPolymorph) as <T extends ElementType = 'p'>(
     props: Props<T> &
       Omit<ComponentPropsWithoutRef<T>, keyof Props<T>> & {
