@@ -6,7 +6,7 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: TypographyVariant,
+      options: Object.values(TypographyVariant),
     },
   },
   component: Typography,
